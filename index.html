@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>اوپتیک ویژن | عینک‌های لوکس</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #1d1d1f;
+    --gray: #6e6e73;
+    --light-gray: #f5f5f7;
+    --white: #fff;
+    --blue: #0071e3;
+    --blue-dark: #0077ed;
+    --border: rgba(0,0,0,0.08);
+    --font: 'Vazirmatn', sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: var(--font); background: var(--white); color: var(--black); direction: rtl; }
+
+  /* NAV */
+  nav {
+    position: fixed; top:0; width:100%; z-index:100;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; height: 52px;
+  }
+  .nav-logo { font-size: 18px; font-weight: 700; letter-spacing: -0.5px; text-decoration: none; color: var(--black); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-size: 13px; color: var(--black); text-decoration: none; opacity: 0.85; transition: opacity 0.2s; }
+  .nav-links a:hover { opacity: 1; }
+  .nav-actions { display: flex; gap: 16px; align-items: center; }
+  .nav-btn { font-size: 13px; background: none; border: none; cursor: pointer; font-family: var(--font); color: var(--black); opacity: 0.8; }
+  .nav-btn.active { color: var(--blue); opacity: 1; font-weight: 600; }
+  .user-type-toggle {
+    display: flex; background: var(--light-gray); border-radius: 20px; padding: 3px; gap: 2px;
+  }
+  .toggle-btn {
+    padding: 5px 14px; border-radius: 16px; font-size: 12px; font-weight: 500;
+    cursor: pointer; border: none; background: transparent; font-family: var(--font);
+    transition: all 0.2s; color: var(--gray);
+  }
+  .toggle-btn.active { background: var(--white); color: var(--black); box-shadow: 0 1px 4px rgba(0,0,0,0.15); }
+
+  /* HERO */
+  .hero {
+    padding-top: 52px;
+    background: linear-gradient(180deg, #f5f5f7 0%, #fff 100%);
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero-inner { max-width: 900px; margin: 0 auto; padding: 80px 24px 60px; }
+  .hero-tag {
+    display: inline-block; background: var(--blue); color: #fff;
+    font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 20px;
+    margin-bottom: 20px; letter-spacing: 0.5px;
+  }
+  .hero h1 { font-size: clamp(36px, 6vw, 68px); font-weight: 700; line-height: 1.05; letter-spacing: -2px; color: var(--black); margin-bottom: 16px; }
+  .hero p { font-size: 18px; color: var(--gray); max-width: 500px; margin: 0 auto 36px; line-height: 1.6; font-weight: 300; }
+  .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--blue); color: #fff; border: none;
+    padding: 12px 28px; border-radius: 980px; font-size: 14px; font-weight: 500;
+    cursor: pointer; font-family: var(--font); transition: background 0.2s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-primary:hover { background: #0077ed; }
+  .btn-secondary {
+    background: transparent; color: var(--blue); border: 1.5px solid var(--blue);
+    padding: 12px 28px; border-radius: 980px; font-size: 14px; font-weight: 500;
+    cursor: pointer; font-family: var(--font); transition: all 0.2s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-secondary:hover { background: var(--blue); color: #fff; }
+  .hero-image { width: 100%; max-width: 700px; margin: 0 auto; display: block; padding: 20px 0; }
+  .hero-glasses {
+    display: flex; justify-content: center; gap: 40px; padding: 40px 24px;
+    flex-wrap: wrap;
+  }
+  .hero-glass-item { text-align: center; }
+  .glass-icon { font-size: 72px; margin-bottom: 8px; display: block; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.12)); }
+  .glass-label { font-size: 12px; color: var(--gray); }
+
+  /* SECTION TITLES */
+  .section { max-width: 1200px; margin: 0 auto; padding: 80px 24px; }
+  .section-title { font-size: 32px; font-weight: 700; letter-spacing: -1px; margin-bottom: 8px; }
+  .section-sub { font-size: 15px; color: var(--gray); margin-bottom: 40px; font-weight: 300; }
+
+  /* CATEGORY TABS */
+  .cat-tabs { display: flex; gap: 8px; margin-bottom: 32px; flex-wrap: wrap; }
+  .cat-tab {
+    padding: 8px 18px; border-radius: 980px; border: 1.5px solid var(--border);
+    font-size: 13px; font-weight: 500; cursor: pointer; background: var(--white);
+    font-family: var(--font); transition: all 0.2s; color: var(--black);
+  }
+  .cat-tab.active { background: var(--black); color: var(--white); border-color: var(--black); }
+  .cat-tab:hover:not(.active) { border-color: rgba(0,0,0,0.3); }
+
+  /* PRODUCTS GRID */
+  .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+  .product-card {
+    border-radius: 18px; overflow: hidden; background: var(--light-gray);
+    transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; position: relative;
+  }
+  .product-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.12); }
+  .product-img { width: 100%; aspect-ratio: 4/3; object-fit: contain; padding: 32px; background: var(--light-gray); font-size: 80px; display: flex; align-items: center; justify-content: center; }
+  .product-info { padding: 16px 20px 20px; background: var(--white); border-top: 1px solid var(--border); }
+  .product-brand { font-size: 11px; color: var(--gray); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .product-name { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+  .product-type { font-size: 12px; color: var(--gray); margin-bottom: 12px; }
+  .product-price-row { display: flex; align-items: center; justify-content: space-between; }
+  .product-price { font-size: 16px; font-weight: 700; }
+  .wholesale-badge {
+    font-size: 10px; background: #e8f4fd; color: #0057a8; padding: 3px 8px;
+    border-radius: 20px; font-weight: 600;
+  }
+  .retail-badge {
+    font-size: 10px; background: #f0fde8; color: #2e6e10; padding: 3px 8px;
+    border-radius: 20px; font-weight: 600;
+  }
+  .product-card .badge-type {
+    position: absolute; top: 12px; right: 12px;
+    font-size: 10px; font-weight: 600; padding: 4px 10px; border-radius: 20px;
+  }
+  .badge-sunny { background: rgba(255,200,0,0.18); color: #8c6000; }
+  .badge-medical { background: rgba(0,113,227,0.12); color: #0057a8; }
+  .add-to-cart {
+    width: 100%; margin-top: 12px; padding: 10px; border-radius: 980px;
+    background: var(--blue); color: #fff; border: none; font-size: 13px;
+    font-weight: 500; cursor: pointer; font-family: var(--font); transition: background 0.2s;
+  }
+  .add-to-cart:hover { background: #0077ed; }
+
+  /* BRANDS */
+  .brands-section { background: var(--light-gray); padding: 60px 24px; text-align: center; }
+  .brands-inner { max-width: 1000px; margin: 0 auto; }
+  .brands-grid { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-top: 32px; }
+  .brand-chip {
+    padding: 12px 24px; border-radius: 980px; background: var(--white);
+    font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s;
+    border: 1.5px solid var(--border); color: var(--black);
+  }
+  .brand-chip:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); transform: translateY(-2px); }
+  .brand-chip.selected { background: var(--black); color: var(--white); border-color: var(--black); }
+
+  /* WHOLESALE */
+  .wholesale-section {
+    background: var(--black); color: var(--white);
+    padding: 80px 24px; text-align: center;
+  }
+  .wholesale-inner { max-width: 700px; margin: 0 auto; }
+  .wholesale-section h2 { font-size: 40px; font-weight: 700; letter-spacing: -1.5px; margin-bottom: 12px; }
+  .wholesale-section p { color: rgba(255,255,255,0.65); font-size: 16px; margin-bottom: 36px; font-weight: 300; line-height: 1.7; }
+  .wholesale-features { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
+  .wholesale-feat { background: rgba(255,255,255,0.07); border-radius: 14px; padding: 20px 24px; text-align: center; min-width: 140px; }
+  .wholesale-feat-icon { font-size: 28px; margin-bottom: 8px; display: block; }
+  .wholesale-feat-label { font-size: 12px; color: rgba(255,255,255,0.55); }
+  .wholesale-feat-val { font-size: 15px; font-weight: 600; margin-top: 2px; }
+
+  /* UPLOAD MODAL */
+  .modal-overlay {
+    display: none; position: fixed; inset:0; background: rgba(0,0,0,0.5);
+    z-index: 200; align-items: center; justify-content: center;
+    backdrop-filter: blur(10px);
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--white); border-radius: 24px; padding: 40px;
+    max-width: 480px; width: 90%; text-align: center;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.25);
+    animation: modalIn 0.3s ease;
+  }
+  @keyframes modalIn { from { opacity:0; transform: scale(0.95) translateY(10px); } to { opacity:1; transform: none; } }
+  .modal h3 { font-size: 24px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; }
+  .modal p { color: var(--gray); font-size: 14px; margin-bottom: 28px; line-height: 1.6; }
+  .upload-zone {
+    border: 2px dashed var(--border); border-radius: 16px; padding: 40px 24px;
+    cursor: pointer; transition: border-color 0.2s; margin-bottom: 20px;
+  }
+  .upload-zone:hover { border-color: var(--blue); }
+  .upload-icon { font-size: 40px; margin-bottom: 12px; display: block; }
+  .upload-zone p { color: var(--gray); font-size: 13px; margin: 0; }
+  .upload-zone strong { color: var(--blue); }
+  .modal-actions { display: flex; gap: 10px; }
+  .btn-cancel {
+    flex:1; padding: 12px; border-radius: 980px; border: 1.5px solid var(--border);
+    font-family: var(--font); font-size: 14px; cursor: pointer; background: none; color: var(--black);
+  }
+  .btn-submit {
+    flex:2; padding: 12px; border-radius: 980px; border: none;
+    background: var(--blue); color: #fff; font-family: var(--font); font-size: 14px;
+    font-weight: 500; cursor: pointer; transition: background 0.2s;
+  }
+  .btn-submit:hover { background: #0077ed; }
+  .success-msg { display: none; text-align: center; padding: 20px 0; }
+  .success-icon { font-size: 48px; margin-bottom: 12px; display: block; }
+
+  /* FOOTER */
+  footer { background: var(--light-gray); padding: 40px 24px; border-top: 1px solid var(--border); }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 32px; margin-bottom: 32px; }
+  .footer-col h4 { font-size: 13px; font-weight: 600; margin-bottom: 12px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-col a { font-size: 12px; color: var(--gray); text-decoration: none; }
+  .footer-col a:hover { color: var(--black); }
+  .footer-bottom { border-top: 1px solid var(--border); padding-top: 20px; font-size: 12px; color: var(--gray); text-align: center; }
+
+  /* PRICE NOTE */
+  .price-note { background: #fff8e6; border-radius: 12px; padding: 14px 20px; margin-bottom: 32px; font-size: 13px; color: #6d4c00; display: flex; gap: 10px; align-items: center; }
+
+  /* RESPONSIVE */
+  @media(max-width:600px) {
+    .nav-links { display: none; }
+    .hero h1 { font-size: 36px; }
+    .wholesale-section h2 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">👓 اوپتیک ویژن</a>
+    <ul class="nav-links">
+      <li><a href="#products">محصولات</a></li>
+      <li><a href="#brands">برندها</a></li>
+      <li><a href="#wholesale">عمده‌فروشی</a></li>
+      <li><a href="#contact">تماس</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="user-type-toggle" id="userToggle">
+        <button class="toggle-btn active" data-type="retail" onclick="setUserType('retail')">خرده‌فروشی</button>
+        <button class="toggle-btn" data-type="wholesale" onclick="setUserType('wholesale')">عمده‌فروشی</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-tag">کیفیت اصل • تنوع بالا</span>
+    <h1>عینک، سبک زندگی شماست</h1>
+    <p>بهترین برندهای جهانی عینک آفتابی و طبی، با قیمت مستقیم از وارد‌کننده</p>
+    <div class="hero-cta">
+      <a href="#products" class="btn-primary">مشاهده محصولات</a>
+      <a href="#wholesale" class="btn-secondary">خرید عمده</a>
+    </div>
+  </div>
+  <div class="hero-glasses">
+    <div class="hero-glass-item"><span class="glass-icon">🕶️</span><span class="glass-label">آفتابی</span></div>
+    <div class="hero-glass-item"><span class="glass-icon">👓</span><span class="glass-label">طبی</span></div>
+    <div class="hero-glass-item"><span class="glass-icon">🥽</span><span class="glass-label">ورزشی</span></div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section" id="products">
+  <div class="price-note">
+    💡 قیمت‌ها برای همه نمایش داده می‌شود. برای خرید عمده، تأییدیه پروانه کسب الزامی است.
+  </div>
+
+  <h2 class="section-title">محصولات ما</h2>
+  <p class="section-sub">عینک‌های اصل با ضمانت اصالت کالا</p>
+
+  <div class="cat-tabs" id="catTabs">
+    <button class="cat-tab active" onclick="filterProducts('all', this)">همه</button>
+    <button class="cat-tab" onclick="filterProducts('sunny', this)">☀️ آفتابی</button>
+    <button class="cat-tab" onclick="filterProducts('medical', this)">🔬 طبی</button>
+    <button class="cat-tab" onclick="filterProducts('rayban', this)">Ray-Ban</button>
+    <button class="cat-tab" onclick="filterProducts('oakley', this)">Oakley</button>
+    <button class="cat-tab" onclick="filterProducts('gucci', this)">Gucci</button>
+    <button class="cat-tab" onclick="filterProducts('prada', this)">Prada</button>
+    <button class="cat-tab" onclick="filterProducts('carrera', this)">Carrera</button>
+  </div>
+
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<!-- BRANDS -->
+<div class="brands-section" id="brands">
+  <div class="brands-inner">
+    <h2 style="font-size:28px;font-weight:700;letter-spacing:-0.5px;margin-bottom:8px;">برندهای موجود</h2>
+    <p style="color:var(--gray);font-size:14px;">تمامی برندها اصل و دارای گارانتی هستند</p>
+    <div class="brands-grid">
+      <div class="brand-chip">Ray-Ban</div>
+      <div class="brand-chip">Oakley</div>
+      <div class="brand-chip">Gucci</div>
+      <div class="brand-chip">Prada</div>
+      <div class="brand-chip">Carrera</div>
+      <div class="brand-chip">Tom Ford</div>
+      <div class="brand-chip">Versace</div>
+      <div class="brand-chip">Dior</div>
+      <div class="brand-chip">Police</div>
+      <div class="brand-chip">Emporio Armani</div>
+      <div class="brand-chip">Hugo Boss</div>
+      <div class="brand-chip">Calvin Klein</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHOLESALE -->
+<section class="wholesale-section" id="wholesale">
+  <div class="wholesale-inner">
+    <h2>خرید عمده با قیمت ویژه</h2>
+    <p>برای فروشگاه‌ها و اپتیکی‌های معتبر، قیمت‌های اختصاصی عمده‌فروشی ارائه می‌شود. جهت فعال‌سازی حساب عمده، پروانه کسب خود را بارگذاری کنید.</p>
+
+    <div class="wholesale-features">
+      <div class="wholesale-feat">
+        <span class="wholesale-feat-icon">📦</span>
+        <div class="wholesale-feat-val">۳۰٪ تخفیف</div>
+        <div class="wholesale-feat-label">کمتر از قیمت خرده</div>
+      </div>
+      <div class="wholesale-feat">
+        <span class="wholesale-feat-icon">🚚</span>
+        <div class="wholesale-feat-val">ارسال رایگان</div>
+        <div class="wholesale-feat-label">بالای ۵ میلیون تومان</div>
+      </div>
+      <div class="wholesale-feat">
+        <span class="wholesale-feat-icon">🤝</span>
+        <div class="wholesale-feat-val">پشتیبانی VIP</div>
+        <div class="wholesale-feat-label">اختصاصی عمده‌فروشان</div>
+      </div>
+      <div class="wholesale-feat">
+        <span class="wholesale-feat-icon">🔁</span>
+        <div class="wholesale-feat-val">مرجوعی آسان</div>
+        <div class="wholesale-feat-label">تا ۳۰ روز</div>
+      </div>
+    </div>
+
+    <button class="btn-primary" onclick="openWholesaleModal()" style="font-size:15px;padding:14px 36px;">
+      ارسال پروانه کسب و ثبت‌نام عمده
+    </button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-col">
+        <h4>👓 اوپتیک ویژن</h4>
+        <p style="font-size:12px;color:var(--gray);max-width:200px;line-height:1.7;">واردکننده رسمی برندهای برتر عینک در ایران</p>
+      </div>
+      <div class="footer-col">
+        <h4>محصولات</h4>
+        <ul>
+          <li><a href="#">عینک آفتابی</a></li>
+          <li><a href="#">عینک طبی</a></li>
+          <li><a href="#">فریم ورزشی</a></li>
+          <li><a href="#">لوازم جانبی</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>خدمات</h4>
+        <ul>
+          <li><a href="#">خرید عمده</a></li>
+          <li><a href="#">نمایندگی فروش</a></li>
+          <li><a href="#">ضمانت اصالت</a></li>
+          <li><a href="#">پشتیبانی</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>تماس</h4>
+        <ul>
+          <li><a href="#">۰۲۱-۱۲۳۴۵۶۷۸</a></li>
+          <li><a href="#">info@opticvision.ir</a></li>
+          <li><a href="#">تهران، خیابان ولیعصر</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© ۱۴۰۴ اوپتیک ویژن. تمامی حقوق محفوظ است.</div>
+  </div>
+</footer>
+
+<!-- WHOLESALE MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+  <div class="modal" id="modal">
+    <div id="uploadForm">
+      <h3>ثبت‌نام عمده‌فروشی</h3>
+      <p>لطفاً پروانه کسب خود را بارگذاری کنید. پس از بررسی توسط تیم ما (حداکثر ۲۴ ساعت)، حساب عمده شما فعال خواهد شد.</p>
+
+      <div style="margin-bottom:20px; text-align:right;">
+        <label style="font-size:13px;font-weight:600;display:block;margin-bottom:6px;">نام فروشگاه / اپتیکی</label>
+        <input type="text" placeholder="مثال: اپتیک نور" style="width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:10px;font-family:var(--font);font-size:14px;outline:none;">
+      </div>
+      <div style="margin-bottom:20px; text-align:right;">
+        <label style="font-size:13px;font-weight:600;display:block;margin-bottom:6px;">شماره تماس</label>
+        <input type="tel" placeholder="۰۹۱۲۰۰۰۰۰۰۰" style="width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:10px;font-family:var(--font);font-size:14px;outline:none;">
+      </div>
+
+      <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
+        <span class="upload-icon">📄</span>
+        <p><strong>کلیک کنید</strong> یا فایل را اینجا بکشید</p>
+        <p style="margin-top:6px;font-size:11px;">PDF، JPG یا PNG — حداکثر ۵ مگابایت</p>
+        <input type="file" id="fileInput" style="display:none" accept=".pdf,.jpg,.jpeg,.png" onchange="fileSelected(this)">
+      </div>
+      <p id="fileName" style="font-size:12px;color:var(--blue);margin-bottom:16px;display:none;"></p>
+
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal()">انصراف</button>
+        <button class="btn-submit" onclick="submitWholesale()">ارسال و ثبت درخواست</button>
+      </div>
+    </div>
+
+    <div class="success-msg" id="successMsg">
+      <span class="success-icon">✅</span>
+      <h3>درخواست ثبت شد!</h3>
+      <p style="color:var(--gray);margin:12px 0 24px;">تیم ما حداکثر تا ۲۴ ساعت پروانه کسب شما را بررسی و نتیجه را اطلاع می‌دهد.</p>
+      <button class="btn-primary" onclick="closeModal()" style="width:100%;">متوجه شدم</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const products = [
+  { id:1, name:'Wayfarer Classic', brand:'Ray-Ban', type:'sunny', brandKey:'rayban', price:'۲,۸۵۰,۰۰۰', wholesale:'۱,۹۵۰,۰۰۰', icon:'🕶️', desc:'آفتابی' },
+  { id:2, name:'RB5154 Clubmaster', brand:'Ray-Ban', type:'medical', brandKey:'rayban', price:'۳,۱۰۰,۰۰۰', wholesale:'۲,۱۵۰,۰۰۰', icon:'👓', desc:'طبی' },
+  { id:3, name:'Holbrook XL', brand:'Oakley', type:'sunny', brandKey:'oakley', price:'۴,۲۰۰,۰۰۰', wholesale:'۲,۹۵۰,۰۰۰', icon:'🥽', desc:'آفتابی ورزشی' },
+  { id:4, name:'Sylas Polarized', brand:'Oakley', type:'sunny', brandKey:'oakley', price:'۳,۸۵۰,۰۰۰', wholesale:'۲,۶۵۰,۰۰۰', icon:'🕶️', desc:'آفتابی پولاریزه' },
+  { id:5, name:'GG0010S Gold', brand:'Gucci', type:'sunny', brandKey:'gucci', price:'۱۲,۵۰۰,۰۰۰', wholesale:'۸,۷۵۰,۰۰۰', icon:'🕶️', desc:'آفتابی لوکس' },
+  { id:6, name:'GG0027O Optical', brand:'Gucci', type:'medical', brandKey:'gucci', price:'۱۰,۸۰۰,۰۰۰', wholesale:'۷,۵۰۰,۰۰۰', icon:'👓', desc:'طبی لوکس' },
+  { id:7, name:'PR 17WS Runway', brand:'Prada', type:'sunny', brandKey:'prada', price:'۱۱,۲۰۰,۰۰۰', wholesale:'۷,۸۰۰,۰۰۰', icon:'🕶️', desc:'آفتابی' },
+  { id:8, name:'VPR 14Y Optical', brand:'Prada', type:'medical', brandKey:'prada', price:'۹,۵۰۰,۰۰۰', wholesale:'۶,۶۰۰,۰۰۰', icon:'👓', desc:'طبی' },
+  { id:9, name:'Champion 8012/S', brand:'Carrera', type:'sunny', brandKey:'carrera', price:'۲,۴۵۰,۰۰۰', wholesale:'۱,۷۰۰,۰۰۰', icon:'🕶️', desc:'آفتابی اسپرت' },
+  { id:10, name:'Carrera 1043/S', brand:'Carrera', type:'sunny', brandKey:'carrera', price:'۲,۱۵۰,۰۰۰', wholesale:'۱,۴۸۰,۰۰۰', icon:'🕶️', desc:'آفتابی کلاسیک' },
+  { id:11, name:'CA6000 Optical', brand:'Carrera', type:'medical', brandKey:'carrera', price:'۱,۹۸۰,۰۰۰', wholesale:'۱,۳۵۰,۰۰۰', icon:'👓', desc:'طبی' },
+  { id:12, name:'Aviator Large', brand:'Ray-Ban', type:'sunny', brandKey:'rayban', price:'۳,۴۵۰,۰۰۰', wholesale:'۲,۴۰۰,۰۰۰', icon:'🕶️', desc:'آفتابی خلبانی' },
+];
+
+let currentType = 'retail';
+let currentFilter = 'all';
+
+function setUserType(type) {
+  currentType = type;
+  document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`[data-type="${type}"]`).classList.add('active');
+  renderProducts();
+}
+
+function filterProducts(filter, el) {
+  currentFilter = filter;
+  document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  renderProducts();
+}
+
+function renderProducts() {
+  const grid = document.getElementById('productsGrid');
+  let filtered = products;
+  if (currentFilter !== 'all') {
+    filtered = products.filter(p => p.type === currentFilter || p.brandKey === currentFilter);
+  }
+  grid.innerHTML = filtered.map(p => `
+    <div class="product-card">
+      <span class="badge-type ${p.type === 'sunny' ? 'badge-sunny' : 'badge-medical'}">
+        ${p.type === 'sunny' ? '☀️ آفتابی' : '🔬 طبی'}
+      </span>
+      <div class="product-img">${p.icon}</div>
+      <div class="product-info">
+        <div class="product-brand">${p.brand}</div>
+        <div class="product-name">${p.name}</div>
+        <div class="product-type">${p.desc}</div>
+        <div class="product-price-row">
+          <div class="product-price">
+            ${currentType === 'wholesale' ? p.wholesale : p.price} تومان
+          </div>
+          <span class="${currentType === 'wholesale' ? 'wholesale-badge' : 'retail-badge'}">
+            ${currentType === 'wholesale' ? 'عمده' : 'خرده'}
+          </span>
+        </div>
+        ${currentType === 'wholesale'
+          ? `<button class="add-to-cart" onclick="handleWholesaleBuy()">سفارش عمده 📦</button>`
+          : `<button class="add-to-cart">افزودن به سبد 🛒</button>`
+        }
+      </div>
+    </div>
+  `).join('');
+}
+
+function handleWholesaleBuy() {
+  openWholesaleModal();
+}
+
+function openWholesaleModal() {
+  document.getElementById('modalOverlay').classList.add('open');
+  document.getElementById('uploadForm').style.display = 'block';
+  document.getElementById('successMsg').style.display = 'none';
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+}
+
+function closeModalOutside(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+}
+
+function fileSelected(input) {
+  if (input.files.length > 0) {
+    const fn = document.getElementById('fileName');
+    fn.style.display = 'block';
+    fn.textContent = '✅ فایل انتخاب شد: ' + input.files[0].name;
+    document.getElementById('uploadZone').style.borderColor = 'var(--blue)';
+  }
+}
+
+function submitWholesale() {
+  document.getElementById('uploadForm').style.display = 'none';
+  document.getElementById('successMsg').style.display = 'block';
+}
+
+renderProducts();
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/
+.venv/
+
+# Database (local only)
+backend/db/eyewear.db
+
+# Uploaded files (local only)
+backend/uploads/
+
+# OS
+.DS_Store
+Thumbs.db
