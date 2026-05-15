@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عینک چوبی دست‌ساز | روز کالکشن</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --wood-dark: #3b2a1a;
+    --wood-mid: #7c5c3a;
+    --wood-light: #c9a87c;
+    --wood-bg: #faf6f0;
+    --gold: #b8922a;
+    --white: #fff;
+    --gray: #6b6b6b;
+    --font: 'Vazirmatn', sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: var(--font); background: var(--wood-bg); color: var(--wood-dark); direction: rtl; }
+
+  /* NAV */
+  nav {
+    position: fixed; top:0; width:100%; z-index:100;
+    background: rgba(250,246,240,0.92);
+    backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(124,92,58,0.15);
+  }
+  .nav-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; height: 56px;
+  }
+  .nav-logo img { height: 40px; }
+  .nav-back {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; color: var(--wood-mid); text-decoration: none;
+    font-weight: 500; transition: color 0.2s;
+  }
+  .nav-back:hover { color: var(--wood-dark); }
+
+  /* HERO */
+  .hero {
+    padding-top: 56px;
+    background: linear-gradient(160deg, #3b2a1a 0%, #7c5c3a 60%, #c9a87c 100%);
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-content { position: relative; z-index:1; max-width: 700px; padding: 40px 24px; }
+  .hero-tag {
+    display: inline-block; border: 1px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.85); font-size: 12px; font-weight: 500;
+    padding: 6px 16px; border-radius: 20px; margin-bottom: 24px;
+    letter-spacing: 1px; backdrop-filter: blur(10px);
+  }
+  .hero h1 {
+    font-size: clamp(36px, 6vw, 72px); font-weight: 700;
+    color: #fff; letter-spacing: -2px; line-height: 1.05; margin-bottom: 20px;
+  }
+  .hero h1 span { color: var(--wood-light); }
+  .hero p {
+    font-size: 17px; color: rgba(255,255,255,0.7); line-height: 1.8;
+    font-weight: 300; max-width: 500px; margin: 0 auto 40px;
+  }
+  .hero-scroll {
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: rgba(255,255,255,0.4); font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .scroll-line {
+    width: 1px; height: 60px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+    animation: scrollAnim 2s ease-in-out infinite;
+  }
+  @keyframes scrollAnim { 0%,100%{transform:scaleY(1);opacity:1} 50%{transform:scaleY(0.5);opacity:0.3} }
+
+  /* INTRO */
+  .intro { max-width: 1100px; margin: 0 auto; padding: 100px 24px 60px; }
+  .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .intro-text h2 { font-size: 40px; font-weight: 700; letter-spacing: -1.5px; margin-bottom: 20px; line-height: 1.1; }
+  .intro-text h2 em { font-style: normal; color: var(--wood-mid); }
+  .intro-text p { font-size: 16px; color: var(--gray); line-height: 1.9; font-weight: 300; margin-bottom: 16px; }
+  .intro-stat { display: flex; gap: 32px; margin-top: 36px; }
+  .stat { text-align: center; }
+  .stat-num { font-size: 36px; font-weight: 700; color: var(--wood-mid); letter-spacing: -1px; }
+  .stat-label { font-size: 12px; color: var(--gray); margin-top: 4px; }
+  .intro-img {
+    border-radius: 24px; overflow: hidden;
+    box-shadow: 0 40px 80px rgba(59,42,26,0.25);
+    aspect-ratio: 3/4; background: #e8ddd0;
+  }
+  .intro-img img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* PROCESS */
+  .process { background: var(--wood-dark); padding: 100px 24px; }
+  .process-inner { max-width: 1100px; margin: 0 auto; }
+  .section-header { text-align: center; margin-bottom: 64px; }
+  .section-tag {
+    display: inline-block; color: var(--wood-light); font-size: 11px;
+    font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px;
+  }
+  .section-header h2 { font-size: 38px; font-weight: 700; color: #fff; letter-spacing: -1px; }
+  .section-header p { color: rgba(255,255,255,0.5); font-size: 15px; margin-top: 12px; font-weight: 300; }
+
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; border-radius: 20px; overflow: hidden; }
+  .step { position: relative; aspect-ratio: 3/4; overflow: hidden; cursor: pointer; }
+  .step img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; filter: brightness(0.7); }
+  .step:hover img { transform: scale(1.05); filter: brightness(0.85); }
+  .step-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 50%);
+    padding: 28px 24px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+  }
+  .step-num {
+    font-size: 48px; font-weight: 700; color: rgba(255,255,255,0.15);
+    line-height: 1; margin-bottom: 8px;
+  }
+  .step-title { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .step-desc { font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.6; font-weight: 300; }
+  .step-badge {
+    position: absolute; top: 20px; right: 20px;
+    background: var(--gold); color: #fff; font-size: 10px; font-weight: 700;
+    padding: 4px 10px; border-radius: 20px; letter-spacing: 0.5px;
+  }
+
+  /* FEATURES */
+  .features { padding: 100px 24px; max-width: 1100px; margin: 0 auto; }
+  .features-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
+  .feature-card {
+    background: #fff; border-radius: 20px; padding: 36px 28px;
+    box-shadow: 0 4px 24px rgba(59,42,26,0.08); transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .feature-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(59,42,26,0.14); }
+  .feature-icon { font-size: 36px; margin-bottom: 16px; display: block; }
+  .feature-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+  .feature-card p { font-size: 13px; color: var(--gray); line-height: 1.8; font-weight: 300; }
+
+  /* CTA */
+  .cta-section {
+    background: linear-gradient(135deg, var(--wood-mid), var(--wood-dark));
+    padding: 100px 24px; text-align: center;
+  }
+  .cta-inner { max-width: 600px; margin: 0 auto; }
+  .cta-section h2 { font-size: 42px; font-weight: 700; color: #fff; letter-spacing: -1.5px; margin-bottom: 16px; }
+  .cta-section p { color: rgba(255,255,255,0.65); font-size: 16px; margin-bottom: 36px; font-weight: 300; line-height: 1.7; }
+  .btn-gold {
+    display: inline-block; background: var(--gold); color: #fff;
+    padding: 14px 36px; border-radius: 980px; font-size: 15px;
+    font-weight: 600; text-decoration: none; font-family: var(--font);
+    transition: all 0.2s; box-shadow: 0 8px 24px rgba(184,146,42,0.4);
+  }
+  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(184,146,42,0.5); }
+  .btn-outline {
+    display: inline-block; border: 1.5px solid rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.85); padding: 14px 36px; border-radius: 980px;
+    font-size: 15px; font-weight: 500; text-decoration: none;
+    font-family: var(--font); margin-right: 12px; transition: all 0.2s;
+  }
+  .btn-outline:hover { border-color: #fff; color: #fff; }
+
+  /* FOOTER */
+  footer { background: var(--wood-dark); padding: 32px 24px; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); }
+  footer p { font-size: 12px; color: rgba(255,255,255,0.35); }
+
+  @media(max-width: 768px) {
+    .intro-grid { grid-template-columns: 1fr; gap: 40px; }
+    .steps { grid-template-columns: 1fr; }
+    .step { aspect-ratio: 4/3; }
+    .features-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 38px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-back">
+      ← بازگشت به فروشگاه
+    </a>
+    <a href="index.html" class="nav-logo">
+      <img src="https://raw.githubusercontent.com/pashamahrouz/eyewear-project/main/logo.png" alt="روز کالکشن">
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">🌿 ساخت دست — مجموعه روز</div>
+    <h1>هنر <span>چوب</span><br>در قاب عینک</h1>
+    <p>هر عینک یک اثر هنری منحصر به فرد است. از انتخاب چوب طبیعی تا تراش دقیق، با دست‌های ماهر استادکاران مجموعه روز.</p>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>بیشتر بدانید</span>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="intro-grid">
+    <div class="intro-text">
+      <h2>وقتی طبیعت<br><em>سبک زندگی</em><br>می‌شود</h2>
+      <p>عینک‌های چوبی مجموعه روز از چوب‌های طبیعی انتخاب‌شده ساخته می‌شوند. هر فریم با دست تراشیده، سمباده زده و پرداخت می‌شود.</p>
+      <p>این عینک‌ها نه‌تنها یک وسیله دید، بلکه نمادی از سبک زندگی پایدار و هنر اصیل ایرانی هستند.</p>
+      <div class="intro-stat">
+        <div class="stat">
+          <div class="stat-num">۱۲+</div>
+          <div class="stat-label">ساعت کار دستی</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">۱۰۰٪</div>
+          <div class="stat-label">چوب طبیعی</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">منحصر</div>
+          <div class="stat-label">هر عینک یکتاست</div>
+        </div>
+      </div>
+    </div>
+    <div class="intro-img">
+      <img src="https://raw.githubusercontent.com/pashamahrouz/eyewear-project/main/IMG_1252.PNG" alt="ساخت عینک چوبی">
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="process-inner">
+    <div class="section-header">
+      <div class="section-tag">فرآیند ساخت</div>
+      <h2>از چوب خام تا عینک نهایی</h2>
+      <p>هر مرحله با دقت و عشق انجام می‌شود</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <img src="https://raw.githubusercontent.com/pashamahrouz/eyewear-project/main/IMG_1252.PNG" alt="مرحله اول">
+        <div class="step-overlay">
+          <div class="step-num">۰۱</div>
+          <div class="step-title">برش و شکل‌دهی</div>
+          <div class="step-desc">چوب طبیعی با دقت برش خورده و شکل اولیه فریم تراشیده می‌شود</div>
+        </div>
+        <div class="step-badge">مرحله اول</div>
+      </div>
+      <div class="step">
+        <img src="https://raw.githubusercontent.com/pashamahrouz/eyewear-project/main/IMG_1249.PNG" alt="مرحله دوم">
+        <div class="step-overlay">
+          <div class="step-num">۰۲</div>
+          <div class="step-title">تراش دقیق</div>
+          <div class="step-desc">جزئیات فریم با ابزار دقیق حک و تراش می‌شود تا فرم نهایی شکل بگیرد</div>
+        </div>
+        <div class="step-badge">مرحله دوم</div>
+      </div>
+      <div class="step">
+        <img src="https://raw.githubusercontent.com/pashamahrouz/eyewear-project/main/IMG_1247.PNG" alt="مرحله سوم">
+        <div class="step-overlay">
+          <div class="step-num">۰۳</div>
+          <div class="step-title">پرداخت و تکمیل</div>
+          <div class="step-desc">فریم سمباده‌کاری شده، روغن طبیعی می‌خورد و لولاهای فلزی نصب می‌شوند</div>
+        </div>
+        <div class="step-badge">مرحله سوم</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="section-header">
+    <div class="section-tag" style="color:var(--wood-mid)">چرا عینک چوبی؟</div>
+    <h2 style="color:var(--wood-dark)">ویژگی‌های منحصربه‌فرد</h2>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <span class="feature-icon">🌿</span>
+      <h3>سازگار با محیط زیست</h3>
+      <p>چوب‌های ما از منابع پایدار تهیه می‌شوند. هیچ ماده شیمیایی مضری در فرآیند ساخت استفاده نمی‌شود.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">⚖️</span>
+      <h3>سبک و راحت</h3>
+      <p>فریم‌های چوبی به طرز شگفت‌انگیزی سبک هستند. فشار کمتر روی بینی و گوش در طول روز.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🎨</span>
+      <h3>طرح یکتا</h3>
+      <p>چون بافت چوب در هر قطعه متفاوت است، هیچ دو عینکی کاملاً مشابه نیستند. شما یک اثر هنری منحصر دارید.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">💪</span>
+      <h3>مقاوم و بادوام</h3>
+      <p>با نگهداری صحیح، این عینک‌ها سال‌ها دوام می‌آورند. چوب در برابر فشار و ضربه بسیار مقاوم است.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🤲</span>
+      <h3>دست‌ساز اصیل</h3>
+      <p>تمام مراحل ساخت توسط استادکاران مجموعه روز انجام می‌شود. هیچ ماشینی جایگزین دست انسان نمی‌شود.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">✨</span>
+      <h3>پرداخت طبیعی</h3>
+      <p>روغن‌های طبیعی برای پرداخت نهایی استفاده می‌شود که رنگ و بافت چوب را بیشتر نمایان می‌کند.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>سفارش دست‌ساز</h2>
+    <p>می‌توانید عینک چوبی اختصاصی با ابعاد و طرح دلخواه خود سفارش دهید. با ما تماس بگیرید.</p>
+    <a href="index.html#contact" class="btn-outline">تماس با ما</a>
+    <a href="index.html" class="btn-gold">مشاهده فروشگاه</a>
+  </div>
+</section>
+
+<footer>
+  <p>© ۱۴۰۴ روز کالکشن — تمامی حقوق محفوظ است</p>
+</footer>
+
+</body>
+</html>
